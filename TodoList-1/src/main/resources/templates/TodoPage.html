@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="utf-8" />
+      <!--add link to a css file + bootstrap and fontawesome for css templates and polices -->
+      <title>Todo list</title>
+   </head>
+
+   <body>
+		<h1> MY TODO LIST </h1>
+		
+		<form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
+		
+			<label> Title: </label>
+			<input type="text"/>
+			
+			<label> Content: </label>
+			<input type="textarea" rows="5" cols="30" class="form-control" id="content"/>
+		
+			<input type="submit" value="save">
+		
+		</form>
+		
+		<div>
+			<table>
+				<tr> 
+					<th> Done</th>
+					<th> Title</th>
+					<th> Content</th>
+					<th> Created date</th>
+				</tr>
+				<tr th:each="task : ${allTasks}">
+						<td> <input type="checkbox" name="active" th:checked="${task.done}" /> </td>
+						<td th:text="${task.title}"></td>
+						<td th:text="${task.content}"></td>
+						<td th:text="${task.createdDate}"></td> 
+						
+				</tr  >
+			</table>	
+		
+		</div >
+		
+		
+   </body>
+</html >
