@@ -2,21 +2,22 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="utf-8" />
+      <!--add link to a css file + bootstrap and fontawesome for css templates and polices -->
       <title>Todo list</title>
    </head>
 
    <body>
 		<h1> MY TODO LIST </h1>
 		
-		<form action="#" th:action="@{/MyTodoList}" th:object="${newTask}" method="post">
+		<form action="#" th:action="@{/saveTask}" th:object="${task}" method="post">
 		
-			<p> Title: </p>
-			<input type="text" th:field="*{title}">
+			<label> Title: </label>
+			<input type="text"/>
 			
-			<p> Content: </p>
-			<input type="textarea" rows="5" cols="30" th:field="*{content}"/>
+			<label> Content: </label>
+			<input type="textarea" rows="5" cols="30" class="form-control" id="content"/>
 		
-			<input type="submit" value="Save">
+			<input type="submit" value="save">
 		
 		</form>
 		
